@@ -11,8 +11,8 @@ const libreriaOnline = async function () {
       data.forEach((book) => {
         mainSession.innerHTML =
           mainSession.innerHTML +
-          `<div class="row d-flex justify-content-center" id="rigaCards">
-            <div class="col card">
+          `<div class="row row-cols-3 px-auto mb-3 d-flex justify-content-center">
+            <div class="col px-auto py-auto col-6 col-md-3 col-lg-4 card">
               <div class="card">
               <img src="${book.img}" id="copertina" class="card-img-top w-100" />
               <div class="card-body">
@@ -22,7 +22,7 @@ const libreriaOnline = async function () {
              </p>
             <a href="#" class="btn btn-primary">Buy</a>
             </div>
-            
+          </div>  
         </div>`;
       });
       //Fine DOM manipulation
