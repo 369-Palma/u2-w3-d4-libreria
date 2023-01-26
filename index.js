@@ -7,23 +7,19 @@ const libreriaOnline = async function () {
       console.log("I data sono:", data);
 
       //Inizio DOM manipulation
-      let mainSession = document.querySelector("#main");
+      let mainSessionRow = document.querySelector("#main");
       data.forEach((book) => {
-        mainSession.innerHTML =
-          mainSession.innerHTML +
-          `<div class="row row-cols-3 px-auto mb-3 d-flex justify-content-center">
-            <div class="col px-auto py-auto col-6 col-md-3 col-lg-4 card">
-              <div class="card">
-              <img src="${book.img}" id="copertina" class="card-img-top w-100" />
+        mainSessionRow.innerHTML =
+          mainSessionRow.innerHTML +
+          `<div class="card col-4">
+              <img src="${book.img}"  class="card-img-top" />
               <div class="card-body">
-              <h5 class="card-title">${book.title}</h5>
-              <p class="card-text">
-               Prezzo: ${book.price}$
-             </p>
-            <a href="#" class="btn btn-primary">Buy</a>
-            </div>
-          </div>  
-        </div>`;
+                <h5 class="card-title">${book.title}</h5>
+                <p class="card-text">${book.price}$
+                </p>
+                <button class="btn btn-primary" onClick="removeTask(event)">Remove</button>
+              </div>
+            </div> `;
       });
       //Fine DOM manipulation
     } else {
@@ -34,4 +30,7 @@ const libreriaOnline = async function () {
   }
 };
 
-console.log(libreriaOnline());
+function removeTask(e) {
+  e.target.parentElement.parentElement.style.display = "none";
+}
+window.onload = libreriaOnline();
